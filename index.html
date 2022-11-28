@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vmaker Deep link</title>
+</head>
+
+<body>
+    <div>
+        <h1>Vmaker Deep link</h1>
+        <Button id="link">Open Vmaker</Button>
+        <script>
+            var link = document.getElementById('link');
+            var timeout;
+            window.addEventListener('blur', function (e) {
+                window.clearTimeout(timeout);
+            })
+
+            link.addEventListener('click', function (e) {
+
+                timeout = window.setTimeout(function () {
+                    console.log('timeout');
+                    window.location = "https://www.vmaker.com/";
+                }, 1000);
+
+                window.location = "Vmaker://open";
+                e.preventDefault();
+            });
+        </script>
+
+    </div>
+</body>
+
+</html>
